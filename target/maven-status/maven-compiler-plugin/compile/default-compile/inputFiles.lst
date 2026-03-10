@@ -1,7 +1,7 @@
-/Users/manojkrishnappa/Second-project/gameapp/src/main/java/com/gameapp/GameAppApplication.java
-/Users/manojkrishnappa/Second-project/gameapp/src/main/java/com/gameapp/config/SecurityConfig.java
-/Users/manojkrishnappa/Second-project/gameapp/src/main/java/com/gameapp/controller/AuthController.java
-/Users/manojkrishnappa/Second-project/gameapp/src/main/java/com/gameapp/controller/DashboardController.java
-/Users/manojkrishnappa/Second-project/gameapp/src/main/java/com/gameapp/model/User.java
-/Users/manojkrishnappa/Second-project/gameapp/src/main/java/com/gameapp/repository/UserRepository.java
-/Users/manojkrishnappa/Second-project/gameapp/src/main/java/com/gameapp/service/UserService.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/main/java/com/gameapp/GameAppApplication.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/main/java/com/gameapp/config/SecurityConfig.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/main/java/com/gameapp/controller/AuthController.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/main/java/com/gameapp/controller/DashboardController.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/main/java/com/gameapp/model/User.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/main/java/com/gameapp/repository/UserRepository.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/main/java/com/gameapp/service/UserService.java

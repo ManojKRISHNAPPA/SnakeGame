@@ -1,6 +1,6 @@
-/Users/manojkrishnappa/Second-project/gameapp/src/test/java/com/gameapp/GameAppApplicationTests.java
-/Users/manojkrishnappa/Second-project/gameapp/src/test/java/com/gameapp/controller/AuthControllerTest.java
-/Users/manojkrishnappa/Second-project/gameapp/src/test/java/com/gameapp/controller/DashboardControllerTest.java
-/Users/manojkrishnappa/Second-project/gameapp/src/test/java/com/gameapp/integration/GameAppIntegrationTest.java
-/Users/manojkrishnappa/Second-project/gameapp/src/test/java/com/gameapp/repository/UserRepositoryTest.java
-/Users/manojkrishnappa/Second-project/gameapp/src/test/java/com/gameapp/service/UserServiceTest.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/test/java/com/gameapp/GameAppApplicationTests.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/test/java/com/gameapp/integration/GameAppIntegrationTest.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/test/java/com/gameapp/repository/UserRepositoryTest.java
+/Users/manojkrishnappa/Second-project/SnakeGame/src/test/java/com/gameapp/service/UserServiceTest.java

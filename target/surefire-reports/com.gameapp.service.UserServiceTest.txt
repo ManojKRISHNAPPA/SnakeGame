@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.gameapp.service.UserServiceTest
 -------------------------------------------------------------------------------
-Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s -- in com.gameapp.service.UserServiceTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 s -- in com.gameapp.service.UserServiceTest

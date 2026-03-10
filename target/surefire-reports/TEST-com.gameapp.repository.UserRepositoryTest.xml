@@ -1,71 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.gameapp.repository.UserRepositoryTest" time="1.792" tests="17" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.gameapp.repository.UserRepositoryTest" time="4.017" tests="17" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="java.specification.version" value="25"/>
+    <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/manojkrishnappa/Second-project/gameapp/target/test-classes:/Users/manojkrishnappa/Second-project/gameapp/target/classes:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.3.2/spring-boot-starter-web-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter/3.3.2/spring-boot-starter-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot/3.3.2/spring-boot-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.3.2/spring-boot-autoconfigure-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.3.2/spring-boot-starter-logging-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/ch/qos/logback/logback-classic/1.5.6/logback-classic-1.5.6.jar:/Users/manojkrishnappa/.m2/repository/ch/qos/logback/logback-core/1.5.6/logback-core-1.5.6.jar:/Users/manojkrishnappa/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.23.1/log4j-to-slf4j-2.23.1.jar:/Users/manojkrishnappa/.m2/repository/org/apache/logging/log4j/log4j-api/2.23.1/log4j-api-2.23.1.jar:/Users/manojkrishnappa/.m2/repository/org/slf4j/jul-to-slf4j/2.0.13/jul-to-slf4j-2.0.13.jar:/Users/manojkrishnappa/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/manojkrishnappa/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.3.2/spring-boot-starter-json-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.17.2/jackson-datatype-jdk8-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.17.2/jackson-datatype-jsr310-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.17.2/jackson-module-parameter-names-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.3.2/spring-boot-starter-tomcat-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.26/tomcat-embed-core-10.1.26.jar:/Users/manojkrishnappa/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.26/tomcat-embed-el-10.1.26.jar:/Users/manojkrishnappa/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.26/tomcat-embed-websocket-10.1.26.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-web/6.1.11/spring-web-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-beans/6.1.11/spring-beans-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/io/micrometer/micrometer-observation/1.13.2/micrometer-observation-1.13.2.jar:/Users/manojkrishnappa/.m2/repository/io/micrometer/micrometer-commons/1.13.2/micrometer-commons-1.13.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-webmvc/6.1.11/spring-webmvc-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-context/6.1.11/spring-context-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-expression/6.1.11/spring-expression-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-thymeleaf/3.3.2/spring-boot-starter-thymeleaf-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/thymeleaf/thymeleaf-spring6/3.1.2.RELEASE/thymeleaf-spring6-3.1.2.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/thymeleaf/thymeleaf/3.1.2.RELEASE/thymeleaf-3.1.2.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/attoparser/attoparser/2.0.7.RELEASE/attoparser-2.0.7.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.3.2/spring-boot-starter-security-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-aop/6.1.11/spring-aop-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-config/6.3.1/spring-security-config-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-web/6.3.1/spring-security-web-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.3.2/spring-boot-starter-data-jpa-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.3.2/spring-boot-starter-aop-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/aspectj/aspectjweaver/1.9.22.1/aspectjweaver-1.9.22.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.3.2/spring-boot-starter-jdbc-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-jdbc/6.1.11/spring-jdbc-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/hibernate/orm/hibernate-core/6.5.2.Final/hibernate-core-6.5.2.Final.jar:/Users/manojkrishnappa/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/manojkrishnappa/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/manojkrishnappa/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/Users/manojkrishnappa/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/Users/manojkrishnappa/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/Users/manojkrishnappa/.m2/repository/net/bytebuddy/byte-buddy/1.14.18/byte-buddy-1.14.18.jar:/Users/manojkrishnappa/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/Users/manojkrishnappa/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/Users/manojkrishnappa/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/Users/manojkrishnappa/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/Users/manojkrishnappa/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/Users/manojkrishnappa/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/manojkrishnappa/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/data/spring-data-jpa/3.3.2/spring-data-jpa-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/data/spring-data-commons/3.3.2/spring-data-commons-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-orm/6.1.11/spring-orm-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-tx/6.1.11/spring-tx-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-aspects/6.1.11/spring-aspects-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/manojkrishnappa/.m2/repository/org/thymeleaf/extras/thymeleaf-extras-springsecurity6/3.1.2.RELEASE/thymeleaf-extras-springsecurity6-3.1.2.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/manojkrishnappa/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.3.2/spring-boot-starter-test-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-test/3.3.2/spring-boot-test-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.3.2/spring-boot-test-autoconfigure-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/manojkrishnappa/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/manojkrishnappa/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/manojkrishnappa/.m2/repository/net/minidev/json-smart/2.5.1/json-smart-2.5.1.jar:/Users/manojkrishnappa/.m2/repository/net/minidev/accessors-smart/2.5.1/accessors-smart-2.5.1.jar:/Users/manojkrishnappa/.m2/repository/org/ow2/asm/asm/9.6/asm-9.6.jar:/Users/manojkrishnappa/.m2/repository/org/assertj/assertj-core/3.25.3/assertj-core-3.25.3.jar:/Users/manojkrishnappa/.m2/repository/org/awaitility/awaitility/4.2.1/awaitility-4.2.1.jar:/Users/manojkrishnappa/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.3/junit-jupiter-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.3/junit-jupiter-api-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/manojkrishnappa/.m2/repository/org/junit/platform/junit-platform-commons/1.10.3/junit-platform-commons-1.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.3/junit-jupiter-params-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.3/junit-jupiter-engine-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/junit/platform/junit-platform-engine/1.10.3/junit-platform-engine-1.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/manojkrishnappa/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.18/byte-buddy-agent-1.14.18.jar:/Users/manojkrishnappa/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/manojkrishnappa/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/manojkrishnappa/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/manojkrishnappa/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-core/6.1.11/spring-core-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-jcl/6.1.11/spring-jcl-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-test/6.1.11/spring-test-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-test/6.3.1/spring-security-test-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-core/6.3.1/spring-security-core-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-crypto/6.3.1/spring-security-crypto-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar:"/>
-    <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="java.class.path" value="/Users/manojkrishnappa/Second-project/SnakeGame/target/test-classes:/Users/manojkrishnappa/Second-project/SnakeGame/target/classes:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.3.2/spring-boot-starter-web-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter/3.3.2/spring-boot-starter-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot/3.3.2/spring-boot-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.3.2/spring-boot-autoconfigure-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.3.2/spring-boot-starter-logging-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/ch/qos/logback/logback-classic/1.5.6/logback-classic-1.5.6.jar:/Users/manojkrishnappa/.m2/repository/ch/qos/logback/logback-core/1.5.6/logback-core-1.5.6.jar:/Users/manojkrishnappa/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.23.1/log4j-to-slf4j-2.23.1.jar:/Users/manojkrishnappa/.m2/repository/org/apache/logging/log4j/log4j-api/2.23.1/log4j-api-2.23.1.jar:/Users/manojkrishnappa/.m2/repository/org/slf4j/jul-to-slf4j/2.0.13/jul-to-slf4j-2.0.13.jar:/Users/manojkrishnappa/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/manojkrishnappa/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.3.2/spring-boot-starter-json-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.17.2/jackson-datatype-jdk8-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.17.2/jackson-datatype-jsr310-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.17.2/jackson-module-parameter-names-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.3.2/spring-boot-starter-tomcat-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.26/tomcat-embed-core-10.1.26.jar:/Users/manojkrishnappa/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.26/tomcat-embed-el-10.1.26.jar:/Users/manojkrishnappa/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.26/tomcat-embed-websocket-10.1.26.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-web/6.1.11/spring-web-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-beans/6.1.11/spring-beans-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/io/micrometer/micrometer-observation/1.13.2/micrometer-observation-1.13.2.jar:/Users/manojkrishnappa/.m2/repository/io/micrometer/micrometer-commons/1.13.2/micrometer-commons-1.13.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-webmvc/6.1.11/spring-webmvc-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-context/6.1.11/spring-context-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-expression/6.1.11/spring-expression-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-thymeleaf/3.3.2/spring-boot-starter-thymeleaf-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/thymeleaf/thymeleaf-spring6/3.1.2.RELEASE/thymeleaf-spring6-3.1.2.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/thymeleaf/thymeleaf/3.1.2.RELEASE/thymeleaf-3.1.2.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/attoparser/attoparser/2.0.7.RELEASE/attoparser-2.0.7.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.3.2/spring-boot-starter-security-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-aop/6.1.11/spring-aop-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-config/6.3.1/spring-security-config-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-web/6.3.1/spring-security-web-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.3.2/spring-boot-starter-data-jpa-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.3.2/spring-boot-starter-aop-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/aspectj/aspectjweaver/1.9.22.1/aspectjweaver-1.9.22.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.3.2/spring-boot-starter-jdbc-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-jdbc/6.1.11/spring-jdbc-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/hibernate/orm/hibernate-core/6.5.2.Final/hibernate-core-6.5.2.Final.jar:/Users/manojkrishnappa/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/manojkrishnappa/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/manojkrishnappa/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/Users/manojkrishnappa/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/Users/manojkrishnappa/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/Users/manojkrishnappa/.m2/repository/net/bytebuddy/byte-buddy/1.14.18/byte-buddy-1.14.18.jar:/Users/manojkrishnappa/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/Users/manojkrishnappa/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/Users/manojkrishnappa/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/Users/manojkrishnappa/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/Users/manojkrishnappa/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/Users/manojkrishnappa/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/manojkrishnappa/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/data/spring-data-jpa/3.3.2/spring-data-jpa-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/data/spring-data-commons/3.3.2/spring-data-commons-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-orm/6.1.11/spring-orm-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-tx/6.1.11/spring-tx-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-aspects/6.1.11/spring-aspects-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/manojkrishnappa/.m2/repository/org/thymeleaf/extras/thymeleaf-extras-springsecurity6/3.1.2.RELEASE/thymeleaf-extras-springsecurity6-3.1.2.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/manojkrishnappa/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.3.2/spring-boot-starter-test-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-test/3.3.2/spring-boot-test-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.3.2/spring-boot-test-autoconfigure-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/manojkrishnappa/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/manojkrishnappa/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/manojkrishnappa/.m2/repository/net/minidev/json-smart/2.5.1/json-smart-2.5.1.jar:/Users/manojkrishnappa/.m2/repository/net/minidev/accessors-smart/2.5.1/accessors-smart-2.5.1.jar:/Users/manojkrishnappa/.m2/repository/org/ow2/asm/asm/9.6/asm-9.6.jar:/Users/manojkrishnappa/.m2/repository/org/assertj/assertj-core/3.25.3/assertj-core-3.25.3.jar:/Users/manojkrishnappa/.m2/repository/org/awaitility/awaitility/4.2.1/awaitility-4.2.1.jar:/Users/manojkrishnappa/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.3/junit-jupiter-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.3/junit-jupiter-api-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/manojkrishnappa/.m2/repository/org/junit/platform/junit-platform-commons/1.10.3/junit-platform-commons-1.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.3/junit-jupiter-params-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.3/junit-jupiter-engine-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/junit/platform/junit-platform-engine/1.10.3/junit-platform-engine-1.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/manojkrishnappa/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.18/byte-buddy-agent-1.14.18.jar:/Users/manojkrishnappa/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/manojkrishnappa/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/manojkrishnappa/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/manojkrishnappa/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-core/6.1.11/spring-core-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-jcl/6.1.11/spring-jcl-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-test/6.1.11/spring-test-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-test/6.3.1/spring-security-test-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-core/6.3.1/spring-security-core-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-crypto/6.3.1/spring-security-crypto-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar:"/>
+    <property name="java.vm.vendor" value="Apple Inc."/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="java.vendor.url" value="https://java.apple.com"/>
     <property name="user.timezone" value="Asia/Kolkata"/>
     <property name="org.jboss.logging.provider" value="slf4j"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="java.vm.specification.version" value="25"/>
+    <property name="java.vm.specification.version" value="17"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
-    <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/25.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/manojkrishnappa/Second-project/gameapp/target/surefire/surefirebooter-20260306165045525_3.jar /Users/manojkrishnappa/Second-project/gameapp/target/surefire 2026-03-06T16-50-45_479-jvmRun1 surefire-20260306165045525_1tmp surefire_0-20260306165045525_2tmp"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/applejdk-17.0.11.9.1.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/manojkrishnappa/Second-project/SnakeGame/target/surefire/surefirebooter-20260310211437031_3.jar /Users/manojkrishnappa/Second-project/SnakeGame/target/surefire 2026-03-10T21-14-36_975-jvmRun1 surefire-20260310211437031_1tmp surefire_0-20260310211437031_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/manojkrishnappa/Second-project/gameapp/target/test-classes:/Users/manojkrishnappa/Second-project/gameapp/target/classes:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.3.2/spring-boot-starter-web-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter/3.3.2/spring-boot-starter-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot/3.3.2/spring-boot-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.3.2/spring-boot-autoconfigure-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.3.2/spring-boot-starter-logging-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/ch/qos/logback/logback-classic/1.5.6/logback-classic-1.5.6.jar:/Users/manojkrishnappa/.m2/repository/ch/qos/logback/logback-core/1.5.6/logback-core-1.5.6.jar:/Users/manojkrishnappa/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.23.1/log4j-to-slf4j-2.23.1.jar:/Users/manojkrishnappa/.m2/repository/org/apache/logging/log4j/log4j-api/2.23.1/log4j-api-2.23.1.jar:/Users/manojkrishnappa/.m2/repository/org/slf4j/jul-to-slf4j/2.0.13/jul-to-slf4j-2.0.13.jar:/Users/manojkrishnappa/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/manojkrishnappa/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.3.2/spring-boot-starter-json-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.17.2/jackson-datatype-jdk8-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.17.2/jackson-datatype-jsr310-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.17.2/jackson-module-parameter-names-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.3.2/spring-boot-starter-tomcat-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.26/tomcat-embed-core-10.1.26.jar:/Users/manojkrishnappa/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.26/tomcat-embed-el-10.1.26.jar:/Users/manojkrishnappa/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.26/tomcat-embed-websocket-10.1.26.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-web/6.1.11/spring-web-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-beans/6.1.11/spring-beans-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/io/micrometer/micrometer-observation/1.13.2/micrometer-observation-1.13.2.jar:/Users/manojkrishnappa/.m2/repository/io/micrometer/micrometer-commons/1.13.2/micrometer-commons-1.13.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-webmvc/6.1.11/spring-webmvc-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-context/6.1.11/spring-context-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-expression/6.1.11/spring-expression-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-thymeleaf/3.3.2/spring-boot-starter-thymeleaf-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/thymeleaf/thymeleaf-spring6/3.1.2.RELEASE/thymeleaf-spring6-3.1.2.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/thymeleaf/thymeleaf/3.1.2.RELEASE/thymeleaf-3.1.2.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/attoparser/attoparser/2.0.7.RELEASE/attoparser-2.0.7.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.3.2/spring-boot-starter-security-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-aop/6.1.11/spring-aop-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-config/6.3.1/spring-security-config-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-web/6.3.1/spring-security-web-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.3.2/spring-boot-starter-data-jpa-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.3.2/spring-boot-starter-aop-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/aspectj/aspectjweaver/1.9.22.1/aspectjweaver-1.9.22.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.3.2/spring-boot-starter-jdbc-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-jdbc/6.1.11/spring-jdbc-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/hibernate/orm/hibernate-core/6.5.2.Final/hibernate-core-6.5.2.Final.jar:/Users/manojkrishnappa/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/manojkrishnappa/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/manojkrishnappa/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/Users/manojkrishnappa/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/Users/manojkrishnappa/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/Users/manojkrishnappa/.m2/repository/net/bytebuddy/byte-buddy/1.14.18/byte-buddy-1.14.18.jar:/Users/manojkrishnappa/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/Users/manojkrishnappa/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/Users/manojkrishnappa/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/Users/manojkrishnappa/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/Users/manojkrishnappa/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/Users/manojkrishnappa/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/manojkrishnappa/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/data/spring-data-jpa/3.3.2/spring-data-jpa-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/data/spring-data-commons/3.3.2/spring-data-commons-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-orm/6.1.11/spring-orm-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-tx/6.1.11/spring-tx-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-aspects/6.1.11/spring-aspects-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/manojkrishnappa/.m2/repository/org/thymeleaf/extras/thymeleaf-extras-springsecurity6/3.1.2.RELEASE/thymeleaf-extras-springsecurity6-3.1.2.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/manojkrishnappa/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.3.2/spring-boot-starter-test-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-test/3.3.2/spring-boot-test-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.3.2/spring-boot-test-autoconfigure-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/manojkrishnappa/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/manojkrishnappa/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/manojkrishnappa/.m2/repository/net/minidev/json-smart/2.5.1/json-smart-2.5.1.jar:/Users/manojkrishnappa/.m2/repository/net/minidev/accessors-smart/2.5.1/accessors-smart-2.5.1.jar:/Users/manojkrishnappa/.m2/repository/org/ow2/asm/asm/9.6/asm-9.6.jar:/Users/manojkrishnappa/.m2/repository/org/assertj/assertj-core/3.25.3/assertj-core-3.25.3.jar:/Users/manojkrishnappa/.m2/repository/org/awaitility/awaitility/4.2.1/awaitility-4.2.1.jar:/Users/manojkrishnappa/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.3/junit-jupiter-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.3/junit-jupiter-api-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/manojkrishnappa/.m2/repository/org/junit/platform/junit-platform-commons/1.10.3/junit-platform-commons-1.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.3/junit-jupiter-params-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.3/junit-jupiter-engine-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/junit/platform/junit-platform-engine/1.10.3/junit-platform-engine-1.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/manojkrishnappa/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.18/byte-buddy-agent-1.14.18.jar:/Users/manojkrishnappa/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/manojkrishnappa/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/manojkrishnappa/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/manojkrishnappa/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-core/6.1.11/spring-core-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-jcl/6.1.11/spring-jcl-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-test/6.1.11/spring-test-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-test/6.3.1/spring-security-test-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-core/6.3.1/spring-security-core-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-crypto/6.3.1/spring-security-crypto-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/manojkrishnappa/Second-project/SnakeGame/target/test-classes:/Users/manojkrishnappa/Second-project/SnakeGame/target/classes:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.3.2/spring-boot-starter-web-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter/3.3.2/spring-boot-starter-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot/3.3.2/spring-boot-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.3.2/spring-boot-autoconfigure-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.3.2/spring-boot-starter-logging-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/ch/qos/logback/logback-classic/1.5.6/logback-classic-1.5.6.jar:/Users/manojkrishnappa/.m2/repository/ch/qos/logback/logback-core/1.5.6/logback-core-1.5.6.jar:/Users/manojkrishnappa/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.23.1/log4j-to-slf4j-2.23.1.jar:/Users/manojkrishnappa/.m2/repository/org/apache/logging/log4j/log4j-api/2.23.1/log4j-api-2.23.1.jar:/Users/manojkrishnappa/.m2/repository/org/slf4j/jul-to-slf4j/2.0.13/jul-to-slf4j-2.0.13.jar:/Users/manojkrishnappa/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/manojkrishnappa/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.3.2/spring-boot-starter-json-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.17.2/jackson-datatype-jdk8-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.17.2/jackson-datatype-jsr310-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.17.2/jackson-module-parameter-names-2.17.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.3.2/spring-boot-starter-tomcat-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.26/tomcat-embed-core-10.1.26.jar:/Users/manojkrishnappa/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.26/tomcat-embed-el-10.1.26.jar:/Users/manojkrishnappa/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.26/tomcat-embed-websocket-10.1.26.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-web/6.1.11/spring-web-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-beans/6.1.11/spring-beans-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/io/micrometer/micrometer-observation/1.13.2/micrometer-observation-1.13.2.jar:/Users/manojkrishnappa/.m2/repository/io/micrometer/micrometer-commons/1.13.2/micrometer-commons-1.13.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-webmvc/6.1.11/spring-webmvc-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-context/6.1.11/spring-context-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-expression/6.1.11/spring-expression-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-thymeleaf/3.3.2/spring-boot-starter-thymeleaf-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/thymeleaf/thymeleaf-spring6/3.1.2.RELEASE/thymeleaf-spring6-3.1.2.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/thymeleaf/thymeleaf/3.1.2.RELEASE/thymeleaf-3.1.2.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/attoparser/attoparser/2.0.7.RELEASE/attoparser-2.0.7.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.3.2/spring-boot-starter-security-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-aop/6.1.11/spring-aop-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-config/6.3.1/spring-security-config-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-web/6.3.1/spring-security-web-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.3.2/spring-boot-starter-data-jpa-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.3.2/spring-boot-starter-aop-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/aspectj/aspectjweaver/1.9.22.1/aspectjweaver-1.9.22.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.3.2/spring-boot-starter-jdbc-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-jdbc/6.1.11/spring-jdbc-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/hibernate/orm/hibernate-core/6.5.2.Final/hibernate-core-6.5.2.Final.jar:/Users/manojkrishnappa/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/manojkrishnappa/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/manojkrishnappa/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/Users/manojkrishnappa/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/Users/manojkrishnappa/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/Users/manojkrishnappa/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/Users/manojkrishnappa/.m2/repository/net/bytebuddy/byte-buddy/1.14.18/byte-buddy-1.14.18.jar:/Users/manojkrishnappa/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/Users/manojkrishnappa/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/Users/manojkrishnappa/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/Users/manojkrishnappa/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/Users/manojkrishnappa/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/Users/manojkrishnappa/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/manojkrishnappa/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/data/spring-data-jpa/3.3.2/spring-data-jpa-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/data/spring-data-commons/3.3.2/spring-data-commons-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-orm/6.1.11/spring-orm-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-tx/6.1.11/spring-tx-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-aspects/6.1.11/spring-aspects-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/manojkrishnappa/.m2/repository/org/thymeleaf/extras/thymeleaf-extras-springsecurity6/3.1.2.RELEASE/thymeleaf-extras-springsecurity6-3.1.2.RELEASE.jar:/Users/manojkrishnappa/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/manojkrishnappa/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.3.2/spring-boot-starter-test-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-test/3.3.2/spring-boot-test-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.3.2/spring-boot-test-autoconfigure-3.3.2.jar:/Users/manojkrishnappa/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/manojkrishnappa/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/manojkrishnappa/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/manojkrishnappa/.m2/repository/net/minidev/json-smart/2.5.1/json-smart-2.5.1.jar:/Users/manojkrishnappa/.m2/repository/net/minidev/accessors-smart/2.5.1/accessors-smart-2.5.1.jar:/Users/manojkrishnappa/.m2/repository/org/ow2/asm/asm/9.6/asm-9.6.jar:/Users/manojkrishnappa/.m2/repository/org/assertj/assertj-core/3.25.3/assertj-core-3.25.3.jar:/Users/manojkrishnappa/.m2/repository/org/awaitility/awaitility/4.2.1/awaitility-4.2.1.jar:/Users/manojkrishnappa/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.3/junit-jupiter-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.3/junit-jupiter-api-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/manojkrishnappa/.m2/repository/org/junit/platform/junit-platform-commons/1.10.3/junit-platform-commons-1.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.3/junit-jupiter-params-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.3/junit-jupiter-engine-5.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/junit/platform/junit-platform-engine/1.10.3/junit-platform-engine-1.10.3.jar:/Users/manojkrishnappa/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/manojkrishnappa/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.18/byte-buddy-agent-1.14.18.jar:/Users/manojkrishnappa/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/manojkrishnappa/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/manojkrishnappa/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/manojkrishnappa/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-core/6.1.11/spring-core-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-jcl/6.1.11/spring-jcl-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/spring-test/6.1.11/spring-test-6.1.11.jar:/Users/manojkrishnappa/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-test/6.3.1/spring-security-test-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-core/6.3.1/spring-security-core-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/springframework/security/spring-security-crypto/6.3.1/spring-security-crypto-6.3.1.jar:/Users/manojkrishnappa/.m2/repository/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/manojkrishnappa"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2025-10-21"/>
-    <property name="java.home" value="/opt/homebrew/Cellar/openjdk/25.0.1/libexec/openjdk.jdk/Contents/Home"/>
+    <property name="java.version.date" value="2024-04-16"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/applejdk-17.0.11.9.1.jdk/Contents/Home"/>
     <property name="file.separator" value="/"/>
-    <property name="basedir" value="/Users/manojkrishnappa/Second-project/gameapp"/>
+    <property name="basedir" value="/Users/manojkrishnappa/Second-project/SnakeGame"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/manojkrishnappa/Second-project/gameapp/target/surefire/surefirebooter-20260306165045525_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/manojkrishnappa/Second-project/SnakeGame/target/surefire/surefirebooter-20260310211437031_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="25.0.1"/>
+    <property name="java.runtime.version" value="17.0.11+9-LTS"/>
     <property name="user.name" value="manojkrishnappa"/>
-    <property name="stdout.encoding" value="UTF-8"/>
     <property name="path.separator" value=":"/>
     <property name="os.version" value="26.3.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="java.vendor.version" value="Homebrew"/>
+    <property name="java.vendor.version" value="AppleJDK-17.0.11.9.1"/>
     <property name="localRepository" value="/Users/manojkrishnappa/.m2/repository"/>
-    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="java.vendor.url.bug" value="rdar://new/problem?componentId=1003593&amp;title=17.0.11.9.1%%20JDK%%20Bug"/>
     <property name="java.io.tmpdir" value="/var/folders/63/t9m9k7sj76s6jkkfjyzqxk480000gn/T/"/>
-    <property name="java.version" value="25.0.1"/>
-    <property name="user.dir" value="/Users/manojkrishnappa/Second-project/gameapp"/>
+    <property name="java.version" value="17.0.11"/>
+    <property name="user.dir" value="/Users/manojkrishnappa/Second-project/SnakeGame"/>
     <property name="os.arch" value="aarch64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="32920"/>
+    <property name="PID" value="54887"/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
     <property name="native.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/manojkrishnappa/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="stderr.encoding" value="UTF-8"/>
-    <property name="java.vendor" value="Homebrew"/>
-    <property name="java.vm.version" value="25.0.1"/>
-    <property name="stdin.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Apple Inc."/>
+    <property name="java.vm.version" value="17.0.11+9-LTS"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="java.class.version" value="69.0"/>
+    <property name="java.class.version" value="61.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[GameApp] "/>
   </properties>
-  <testcase name="testExistsByEmail_False" classname="com.gameapp.repository.UserRepositoryTest" time="0.131">
-    <system-out><![CDATA[16:50:45.923 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.gameapp.repository.UserRepositoryTest]: UserRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-16:50:45.987 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.gameapp.GameAppApplication for test class com.gameapp.repository.UserRepositoryTest
+  <testcase name="testExistsByEmail_False" classname="com.gameapp.repository.UserRepositoryTest" time="0.555">
+    <system-out><![CDATA[21:14:37.896 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.gameapp.repository.UserRepositoryTest]: UserRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:14:38.025 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.gameapp.GameAppApplication for test class com.gameapp.repository.UserRepositoryTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -76,19 +72,19 @@
 
  :: Spring Boot ::                (v3.3.2)
 
-2026-03-06T16:50:46.143+05:30  INFO 32920 --- [GameApp] [           main] c.gameapp.repository.UserRepositoryTest  : Starting UserRepositoryTest using Java 25.0.1 with PID 32920 (started by manojkrishnappa in /Users/manojkrishnappa/Second-project/gameapp)
-2026-03-06T16:50:46.144+05:30 DEBUG 32920 --- [GameApp] [           main] c.gameapp.repository.UserRepositoryTest  : Running with Spring Boot v3.3.2, Spring v6.1.11
-2026-03-06T16:50:46.144+05:30  INFO 32920 --- [GameApp] [           main] c.gameapp.repository.UserRepositoryTest  : The following 1 profile is active: "test"
-2026-03-06T16:50:46.294+05:30  INFO 32920 --- [GameApp] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-06T16:50:46.318+05:30  INFO 32920 --- [GameApp] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 1 JPA repository interface.
-2026-03-06T16:50:46.339+05:30  INFO 32920 --- [GameApp] [           main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2026-03-06T16:50:46.401+05:30  INFO 32920 --- [GameApp] [           main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:c1e0629e-8dd2-40e0-bb71-7d79fcc92936;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2026-03-06T16:50:46.538+05:30  INFO 32920 --- [GameApp] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-03-06T16:50:46.566+05:30  INFO 32920 --- [GameApp] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2026-03-06T16:50:46.579+05:30  INFO 32920 --- [GameApp] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-03-06T16:50:46.715+05:30  INFO 32920 --- [GameApp] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-06T16:50:46.734+05:30  WARN 32920 --- [GameApp] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-03-06T16:50:47.074+05:30  INFO 32920 --- [GameApp] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-10T21:14:38.381+05:30  INFO 54887 --- [GameApp] [           main] c.gameapp.repository.UserRepositoryTest  : Starting UserRepositoryTest using Java 17.0.11 with PID 54887 (started by manojkrishnappa in /Users/manojkrishnappa/Second-project/SnakeGame)
+2026-03-10T21:14:38.381+05:30 DEBUG 54887 --- [GameApp] [           main] c.gameapp.repository.UserRepositoryTest  : Running with Spring Boot v3.3.2, Spring v6.1.11
+2026-03-10T21:14:38.382+05:30  INFO 54887 --- [GameApp] [           main] c.gameapp.repository.UserRepositoryTest  : The following 1 profile is active: "test"
+2026-03-10T21:14:38.648+05:30  INFO 54887 --- [GameApp] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-10T21:14:38.688+05:30  INFO 54887 --- [GameApp] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 1 JPA repository interface.
+2026-03-10T21:14:38.725+05:30  INFO 54887 --- [GameApp] [           main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-03-10T21:14:38.842+05:30  INFO 54887 --- [GameApp] [           main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:e4770096-efdd-441d-a709-3ccd8651b423;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-03-10T21:14:39.191+05:30  INFO 54887 --- [GameApp] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-10T21:14:39.249+05:30  INFO 54887 --- [GameApp] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-03-10T21:14:39.282+05:30  INFO 54887 --- [GameApp] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-10T21:14:39.553+05:30  INFO 54887 --- [GameApp] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-10T21:14:39.596+05:30  WARN 54887 --- [GameApp] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-10T21:14:40.331+05:30  INFO 54887 --- [GameApp] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     drop table if exists users cascade 
 Hibernate: 
@@ -103,9 +99,9 @@ Hibernate:
         password varchar(255) not null,
         primary key (id)
     )
-2026-03-06T16:50:47.090+05:30  INFO 32920 --- [GameApp] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-06T16:50:47.234+05:30  INFO 32920 --- [GameApp] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-06T16:50:47.378+05:30  INFO 32920 --- [GameApp] [           main] c.gameapp.repository.UserRepositoryTest  : Started UserRepositoryTest in 1.364 seconds (process running for 1.808)
+2026-03-10T21:14:40.367+05:30  INFO 54887 --- [GameApp] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-10T21:14:40.599+05:30  INFO 54887 --- [GameApp] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-10T21:14:40.975+05:30  INFO 54887 --- [GameApp] [           main] c.gameapp.repository.UserRepositoryTest  : Started UserRepositoryTest in 2.883 seconds (process running for 3.887)
 Hibernate: 
     select
         u1_0.id,
@@ -136,7 +132,7 @@ Hibernate:
         first ? rows only
 ]]></system-out>
   </testcase>
-  <testcase name="testExistsByUsername_True" classname="com.gameapp.repository.UserRepositoryTest" time="0.006">
+  <testcase name="testExistsByUsername_True" classname="com.gameapp.repository.UserRepositoryTest" time="0.008">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -167,7 +163,7 @@ Hibernate:
         first ? rows only
 ]]></system-out>
   </testcase>
-  <testcase name="testSaveUser_DuplicateEmail_ThrowsException" classname="com.gameapp.repository.UserRepositoryTest" time="0.01">
+  <testcase name="testSaveUser_DuplicateEmail_ThrowsException" classname="com.gameapp.repository.UserRepositoryTest" time="0.016">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -194,12 +190,12 @@ Hibernate:
         (created_at, email, first_name, last_login, last_name, password, username, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, default)
-2026-03-06T16:50:47.534+05:30  WARN 32920 --- [GameApp] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
-2026-03-06T16:50:47.534+05:30 ERROR 32920 --- [GameApp] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_4D ON PUBLIC.USERS(EMAIL NULLS FIRST) VALUES ( /* 3 */ 'test@example.com' )"; SQL statement:
+2026-03-10T21:14:41.556+05:30  WARN 54887 --- [GameApp] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+2026-03-10T21:14:41.557+05:30 ERROR 54887 --- [GameApp] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_4D ON PUBLIC.USERS(EMAIL NULLS FIRST) VALUES ( /* 3 */ 'test@example.com' )"; SQL statement:
 insert into users (created_at,email,first_name,last_login,last_name,password,username,id) values (?,?,?,?,?,?,?,default) [23505-224]
 ]]></system-out>
   </testcase>
-  <testcase name="testSaveUser_SetsCreatedAt" classname="com.gameapp.repository.UserRepositoryTest" time="0.006">
+  <testcase name="testSaveUser_SetsCreatedAt" classname="com.gameapp.repository.UserRepositoryTest" time="0.008">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -221,7 +217,7 @@ Hibernate:
         (?, ?, ?, ?, ?, ?, ?, default)
 ]]></system-out>
   </testcase>
-  <testcase name="testExistsByUsername_False" classname="com.gameapp.repository.UserRepositoryTest" time="0.006">
+  <testcase name="testExistsByUsername_False" classname="com.gameapp.repository.UserRepositoryTest" time="0.007">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -252,7 +248,7 @@ Hibernate:
         first ? rows only
 ]]></system-out>
   </testcase>
-  <testcase name="testFindAll" classname="com.gameapp.repository.UserRepositoryTest" time="0.011">
+  <testcase name="testFindAll" classname="com.gameapp.repository.UserRepositoryTest" time="0.015">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -300,7 +296,7 @@ Hibernate:
         users u1_0
 ]]></system-out>
   </testcase>
-  <testcase name="testCount" classname="com.gameapp.repository.UserRepositoryTest" time="0.029">
+  <testcase name="testCount" classname="com.gameapp.repository.UserRepositoryTest" time="0.044">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -327,7 +323,7 @@ Hibernate:
         users u1_0
 ]]></system-out>
   </testcase>
-  <testcase name="testFindByEmail_NotFound" classname="com.gameapp.repository.UserRepositoryTest" time="0.005">
+  <testcase name="testFindByEmail_NotFound" classname="com.gameapp.repository.UserRepositoryTest" time="0.008">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -363,7 +359,7 @@ Hibernate:
         u1_0.email=?
 ]]></system-out>
   </testcase>
-  <testcase name="testSaveUser_DuplicateUsername_ThrowsException" classname="com.gameapp.repository.UserRepositoryTest" time="0.005">
+  <testcase name="testSaveUser_DuplicateUsername_ThrowsException" classname="com.gameapp.repository.UserRepositoryTest" time="0.009">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -390,12 +386,12 @@ Hibernate:
         (created_at, email, first_name, last_login, last_name, password, username, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, default)
-2026-03-06T16:50:47.600+05:30  WARN 32920 --- [GameApp] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
-2026-03-06T16:50:47.600+05:30 ERROR 32920 --- [GameApp] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_4 ON PUBLIC.USERS(USERNAME NULLS FIRST) VALUES ( /* 12 */ 'testuser' )"; SQL statement:
+2026-03-10T21:14:41.657+05:30  WARN 54887 --- [GameApp] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+2026-03-10T21:14:41.657+05:30 ERROR 54887 --- [GameApp] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_4 ON PUBLIC.USERS(USERNAME NULLS FIRST) VALUES ( /* 12 */ 'testuser' )"; SQL statement:
 insert into users (created_at,email,first_name,last_login,last_name,password,username,id) values (?,?,?,?,?,?,?,default) [23505-224]
 ]]></system-out>
   </testcase>
-  <testcase name="testGetFullName_NullNames" classname="com.gameapp.repository.UserRepositoryTest" time="0.005">
+  <testcase name="testGetFullName_NullNames" classname="com.gameapp.repository.UserRepositoryTest" time="0.007">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -417,7 +413,7 @@ Hibernate:
         (?, ?, ?, ?, ?, ?, ?, default)
 ]]></system-out>
   </testcase>
-  <testcase name="testFindByEmail_Found" classname="com.gameapp.repository.UserRepositoryTest" time="0.005">
+  <testcase name="testFindByEmail_Found" classname="com.gameapp.repository.UserRepositoryTest" time="0.006">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -453,7 +449,7 @@ Hibernate:
         u1_0.email=?
 ]]></system-out>
   </testcase>
-  <testcase name="testSaveUser_GeneratesId" classname="com.gameapp.repository.UserRepositoryTest" time="0.004">
+  <testcase name="testSaveUser_GeneratesId" classname="com.gameapp.repository.UserRepositoryTest" time="0.006">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -504,7 +500,7 @@ Hibernate:
         (?, ?, ?, ?, ?, ?, ?, default)
 ]]></system-out>
   </testcase>
-  <testcase name="testDeleteById" classname="com.gameapp.repository.UserRepositoryTest" time="0.009">
+  <testcase name="testDeleteById" classname="com.gameapp.repository.UserRepositoryTest" time="0.013">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -526,43 +522,7 @@ Hibernate:
         (?, ?, ?, ?, ?, ?, ?, default)
 ]]></system-out>
   </testcase>
-  <testcase name="testFindByUsername_Found" classname="com.gameapp.repository.UserRepositoryTest" time="0.005">
-    <system-out><![CDATA[Hibernate: 
-    select
-        u1_0.id,
-        u1_0.created_at,
-        u1_0.email,
-        u1_0.first_name,
-        u1_0.last_login,
-        u1_0.last_name,
-        u1_0.password,
-        u1_0.username 
-    from
-        users u1_0
-Hibernate: 
-    insert 
-    into
-        users
-        (created_at, email, first_name, last_login, last_name, password, username, id) 
-    values
-        (?, ?, ?, ?, ?, ?, ?, default)
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.created_at,
-        u1_0.email,
-        u1_0.first_name,
-        u1_0.last_login,
-        u1_0.last_name,
-        u1_0.password,
-        u1_0.username 
-    from
-        users u1_0 
-    where
-        u1_0.username=?
-]]></system-out>
-  </testcase>
-  <testcase name="testFindByUsername_NotFound" classname="com.gameapp.repository.UserRepositoryTest" time="0.005">
+  <testcase name="testFindByUsername_Found" classname="com.gameapp.repository.UserRepositoryTest" time="0.007">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
@@ -598,7 +558,43 @@ Hibernate:
         u1_0.username=?
 ]]></system-out>
   </testcase>
-  <testcase name="testExistsByEmail_True" classname="com.gameapp.repository.UserRepositoryTest" time="0.003">
+  <testcase name="testFindByUsername_NotFound" classname="com.gameapp.repository.UserRepositoryTest" time="0.01">
+    <system-out><![CDATA[Hibernate: 
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0
+Hibernate: 
+    insert 
+    into
+        users
+        (created_at, email, first_name, last_login, last_name, password, username, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+]]></system-out>
+  </testcase>
+  <testcase name="testExistsByEmail_True" classname="com.gameapp.repository.UserRepositoryTest" time="0.006">
     <system-out><![CDATA[Hibernate: 
     select
         u1_0.id,
