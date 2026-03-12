@@ -6,11 +6,11 @@ pipeline{
         maven 'maven'
     }
     stages{
-       stage('Git Checkout') {
-            steps {
-                git url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git', branch: 'main'
-            }
-        }
+    //    stage('Git Checkout') {
+    //         steps {
+    //             git url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git', branch: 'main'
+    //         }
+    //     }
 
         stage('Compile') {
             steps {
