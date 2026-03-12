@@ -54,8 +54,7 @@ pipeline{
             steps{
                 withSonarQubeEnv('SonarQube') {
                     sh '''
-                    mvn sonar
-                    -Dsonar.projectKey=snake-game
+                        mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
                     '''
                     }
             }
