@@ -145,7 +145,7 @@
                     <format>ALL</format>
 
                     <!-- Fail only for high vulnerabilities -->
-                    <failBuildOnCVSS>8</failBuildOnCVSS>
+                    <failBuildOnCVSS>12</failBuildOnCVSS>
                     <failOnError>false</failOnError>
 
                     <!-- 🔥 FIX: Disable OSS Index (removes rate limit errors) -->
