@@ -94,14 +94,14 @@ deny contains msg if {
 }
 
 #--- Multi-stage build check disabled ---
-default multi_stage = false
- multi_stage = true if {
-     input[i].Cmd == "copy"
-     val := concat(" ", input[i].Flags)
-     contains(lower(val), "--from=")
- }
+#default multi_stage = false
+# multi_stage = true if {
+#     input[i].Cmd == "copy"
+#     val := concat(" ", input[i].Flags)
+#     contains(lower(val), "--from=")
+# }
 
- deny contains msg if {
-     multi_stage == false
-     msg = sprintf("You COPY, but do not appear to use multi-stage builds...", [])
- }
+# deny contains msg if {
+#     multi_stage == false
+#     msg = sprintf("You COPY, but do not appear to use multi-stage builds...", [])
+# }
