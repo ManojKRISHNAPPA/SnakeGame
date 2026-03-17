@@ -60,19 +60,19 @@ pipeline{
             }
         }
 
-        // stage('Quality Gate') {
-        //     steps {
-        //         timeout(time: 2, unit: 'MINUTES') {
-        //             waitForQualityGate abortPipeline: true
-        //         }
-        //     }
-        // }
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 2, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
 
-        // stage('depedency-chck/vulnarablescan'){
-        //     steps {
-        //         sh 'mvn org.owasp:dependency-check-maven:check -Dformat=ALL'
-        //      }
-        // }
+        stage('depedency-chck/vulnarablescan'){
+            steps {
+                sh 'mvn org.owasp:dependency-check-maven:check -Dformat=ALL'
+             }
+        }
 
         stage('Base-image-scan'){
             steps{
