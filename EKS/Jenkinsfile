@@ -25,7 +25,7 @@ pipeline{
 
         stage('Snyk Security Scan'){
             steps{
-                sh 'pwd; cd EKS/;./iac-code-scan.sh'
+                sh 'pwd; cd EKS/;bash iac-code-scan.sh'
             }
         }
 
