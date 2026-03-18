@@ -10,6 +10,8 @@ pipeline{
 
     agent any
 
+
+
     stages{
         stage('Checkout'){
             steps{
@@ -18,6 +20,12 @@ pipeline{
                         git url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git',branch: 'terraform'
                     }
                 }
+            }
+        }
+
+        stage('Snyk Security Scan'){
+            steps{
+                sh 'pwd; cd EKS/;./iac-code-scan.sh'
             }
         }
 

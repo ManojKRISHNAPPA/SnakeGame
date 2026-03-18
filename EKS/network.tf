@@ -18,7 +18,7 @@ resource "aws_subnet" "itkannadigaru_subnet" {
   vpc_id     = aws_vpc.itkannadigaru_vpc.id
   cidr_block = cidrsubnet(aws_vpc.itkannadigaru_vpc.cidr_block, 8, count.index)
 
-  availability_zone       = element(["us-west-2a", "us-west-2b"], count.index)
+  availability_zone       = element(["ap-northeast-1a", "ap-northeast-1b"], count.index)
   map_public_ip_on_launch = true
 
   tags = {
