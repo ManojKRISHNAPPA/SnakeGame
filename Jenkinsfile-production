@@ -133,6 +133,20 @@ pipeline{
                 sh 'aws eks update-kubeconfig --region ${AWS_REGION} --name ${CLSUTER_NAME}'
             }
         }
+        stage('OPA-kubernetes'){
+            steps{
+                sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-k8s-security.rego deployment.yml'
+            }
+        }
+
+        stage('Deployment'){
+            steps{
+                withKubeConfig(caCertificate: '', clusterName: 'itkannadigaru-cluster', contextName: '', credentialsId: 'kube', namespace: 'itkannadigaru', restrictKubeConfigAccess: false, serverUrl: 'https://D09E59145AE133DC9671C3E749C73154.gr7.ap-northeast-1.eks.amazonaws.com') {
+                    sh " sed -i 's|replace|${IMAGE_NAME}|g' deployment.yml "
+                    sh " kubectl apply -f deployment.yml -n ${NAMESPACE}"
+                }
+            }
+        }     
 
     }
 }
