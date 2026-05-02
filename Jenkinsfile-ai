@@ -1,0 +1,284 @@
+pipeline {
+    agent any
+
+    tools {
+        jdk   'java-17'
+        maven 'maven'
+    }
+
+    environment {
+        IMAGE_NAME   = "manojkrishnappa/snake-game-ai:${GIT_COMMIT}"
+        AWS_REGION   = "ap-northeast-1"
+        CLUSTER_NAME = "itkannadigaru-cluster"
+        NAMESPACE    = "itkannadigaru"
+
+        // ─── AI / LLM configuration ───────────────────────────────────────────
+        // Priority order: Ollama (local) → HuggingFace (free) → OpenAI (fallback)
+        OLLAMA_HOST  = "http://127.0.0.1:11434"   // change if Jenkins agent is remote
+        OLLAMA_MODEL = "mistral"                  // any model pulled in Ollama
+
+        // Store HF_API_TOKEN and OPENAI_API_KEY as Jenkins Secret Text credentials
+        // and inject them via withCredentials — see the AI stages below.
+
+        // Set to "true" to make the pipeline fail when CRITICAL vulns are found
+        AI_FAIL_ON_CRITICAL = "false"
+    }
+
+    stages {
+
+        // ════════════════════════════════════════════════════════════════════
+        // DEVOPS FOUNDATION
+        // ════════════════════════════════════════════════════════════════════
+
+        stage('Git Checkout') {
+            steps {
+                git url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git', branch: 'main'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════════════
+        // AI PRE-CHECK — Ensure Ollama model is pulled before any AI stage
+        // ════════════════════════════════════════════════════════════════════
+
+        stage('Ensure Ollama Model') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    sh '''
+                        # Only pull if model is not already present locally
+                        if ollama list 2>/dev/null | grep -q "^${OLLAMA_MODEL}"; then
+                            echo "[AI] Model '${OLLAMA_MODEL}' already present — skipping pull."
+                        else
+                            echo "[AI] Model '${OLLAMA_MODEL}' not found — pulling (one-time)..."
+                            ollama pull ${OLLAMA_MODEL}
+                            echo "[AI] Model '${OLLAMA_MODEL}' pulled successfully."
+                        fi
+                    '''
+                }
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════════════
+        // AI LAYER 1 — Code Review  (runs right after compile)
+        // ════════════════════════════════════════════════════════════════════
+
+        stage('AI Code Review') {
+            steps {
+                // Non-blocking: AI failures become UNSTABLE, not FAILURE
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    withCredentials([
+                        string(credentialsId: 'hf-api-token',   variable: 'HF_API_TOKEN'),
+                        string(credentialsId: 'openai-api-key', variable: 'OPENAI_API_KEY')
+                    ]) {
+                        sh 'python3 scripts/ai_code_review.py'
+                    }
+                }
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'ai-code-review-report.md', allowEmptyArchive: true
+                }
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════════════
+        // DEVSECOPS — Tests, Static Analysis, Dependency Scan
+        // ════════════════════════════════════════════════════════════════════
+
+        stage('Test & Coverage') {
+            steps {
+                sh 'mvn clean test jacoco:report'
+            }
+            post {
+                always {
+                    jacoco(
+                        execPattern:      'target/jacoco.exec',
+                        classPattern:     'target/classes',
+                        sourcePattern:    'src/main/java',
+                        exclusionPattern: ''
+                    )
+                }
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh 'mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
+                }
+            }
+        }
+
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 2, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+
+        stage('Dependency Scan (OWASP)') {
+            steps {
+                // ALL format produces JSON + HTML for both humans and AI
+                sh 'mvn org.owasp:dependency-check-maven:check -Dformat=ALL'
+            }
+            post {
+                always {
+                    publishHTML(target: [
+                        reportName:  'OWASP Report',
+                        reportDir:   'target',
+                        reportFiles: 'dependency-check-report.html'
+                    ])
+                }
+            }
+        }
+
+        stage('Image Scan + OPA + Build') {
+            parallel {
+
+                stage('Trivy Image Scan') {
+                    steps {
+                        // Save output to file so AI can read it
+                        sh '''
+                            BASE_IMAGE=$(grep -m1 "^FROM" Dockerfile | awk "{print \$2}")
+                            echo "Scanning base image: $BASE_IMAGE"
+                            trivy image --severity HIGH,CRITICAL --no-progress \
+                                --format table $BASE_IMAGE 2>&1 | tee trivy-report.txt
+                            trivy image --exit-code 1 --severity CRITICAL \
+                                --no-progress $BASE_IMAGE
+                        '''
+                    }
+                    post {
+                        always {
+                            archiveArtifacts artifacts: 'trivy-report.txt', allowEmptyArchive: true
+                        }
+                    }
+                }
+
+                stage('OPA / Conftest — Dockerfile') {
+                    steps {
+                        sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy dockerfile-security.rego Dockerfile'
+                    }
+                }
+
+                stage('Docker Build') {
+                    steps {
+                        sh 'docker build -t ${IMAGE_NAME} .'
+                    }
+                }
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════════════
+        // AI LAYER 2 — Security Analysis  (reads OWASP JSON + trivy-report.txt)
+        // ════════════════════════════════════════════════════════════════════
+
+        stage('AI Security Analysis') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    withCredentials([
+                        string(credentialsId: 'hf-api-token',   variable: 'HF_API_TOKEN'),
+                        string(credentialsId: 'openai-api-key', variable: 'OPENAI_API_KEY')
+                    ]) {
+                        sh 'python3 scripts/ai_security_analysis.py'
+                    }
+                }
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'ai-security-report.md', allowEmptyArchive: true
+                }
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════════════
+        // DEVSECOPS — Push Image
+        // ════════════════════════════════════════════════════════════════════
+
+        stage('Docker Push') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId:     'docker-hub-creds',
+                    usernameVariable:  'DOCKER_USERNAME',
+                    passwordVariable:  'DOCKER_PASSWORD'
+                )]) {
+                    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                    sh 'docker push ${IMAGE_NAME}'
+                }
+            }
+        }
+
+        stage('Update Kubeconfig') {
+            steps {
+                sh 'aws eks update-kubeconfig --region ${AWS_REGION} --name ${CLUSTER_NAME}'
+            }
+        }
+
+        stage('OPA / Conftest — Kubernetes') {
+            steps {
+                sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-k8s-security.rego deployment.yml'
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════════════
+        // AI LAYER 3 — Release Notes  (runs just before deployment)
+        // ════════════════════════════════════════════════════════════════════
+
+        stage('AI Release Notes') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    withCredentials([
+                        string(credentialsId: 'hf-api-token',   variable: 'HF_API_TOKEN'),
+                        string(credentialsId: 'openai-api-key', variable: 'OPENAI_API_KEY')
+                    ]) {
+                        sh 'python3 scripts/ai_release_notes.py'
+                    }
+                }
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'ai-release-notes.md', allowEmptyArchive: true
+                }
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════════════
+        // DEPLOY
+        // ════════════════════════════════════════════════════════════════════
+
+        stage('Deploy to EKS') {
+            steps {
+                withKubeConfig(
+                    caCertificate:            '',
+                    clusterName:              'itkannadigaru-cluster',
+                    contextName:              '',
+                    credentialsId:            'kube',
+                    namespace:                'itkannadigaru',
+                    restrictKubeConfigAccess: false,
+                    serverUrl:                'https://D09E59145AE133DC9671C3E749C73154.gr7.ap-northeast-1.eks.amazonaws.com'
+                ) {
+                    sh "sed -i 's|replace|${IMAGE_NAME}|g' deployment.yml"
+                    sh "kubectl apply -f deployment.yml -n ${NAMESPACE}"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Collect all AI-generated markdown reports in one place
+            archiveArtifacts artifacts: 'ai-*.md', allowEmptyArchive: true
+        }
+        success {
+            echo "Pipeline SUCCESS — AI reports archived as build artefacts."
+        }
+        failure {
+            echo "Pipeline FAILED — check stage logs. AI reports (if generated) are still archived."
+        }
+    }
+}
