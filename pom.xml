@@ -148,6 +148,9 @@
                     <failBuildOnCVSS>7</failBuildOnCVSS>
                     <failOnError>false</failOnError>
 
+                    <!-- Suppress confirmed NVD CPE false positives -->
+                    <suppressionFile>owasp-suppressions.xml</suppressionFile>
+
                     <!-- Correct property name: ossindexAnalyzerEnabled (lowercase 'i') -->
                     <ossindexAnalyzerEnabled>false</ossindexAnalyzerEnabled>
 
@@ -155,9 +158,8 @@
                     <centralAnalyzerEnabled>false</centralAnalyzerEnabled>
                     <retireJsAnalyzerEnabled>false</retireJsAnalyzerEnabled>
 
-                    <!-- Cache + performance -->
-                    <autoUpdate>true</autoUpdate>
-                    <cveValidForHours>24</cveValidForHours>
+                    <!-- NVD update interval: skip update if data is less than 4 hours old -->
+                    <nvdValidForHours>4</nvdValidForHours>
 
                 </configuration>
                 <executions>
