@@ -144,14 +144,16 @@ pipeline {
                 stage('Trivy Image Scan') {
                     steps {
                         // Save output to file so AI can read it
-                        sh '''
-                            BASE_IMAGE=$(grep -m1 "^FROM" Dockerfile | awk "{print \$2}")
-                            echo "Scanning base image: $BASE_IMAGE"
-                            trivy image --severity HIGH,CRITICAL --no-progress \
-                                --format table $BASE_IMAGE 2>&1 | tee trivy-report.txt
-                            trivy image --exit-code 1 --severity CRITICAL \
-                                --no-progress $BASE_IMAGE
-                        '''
+                        catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
+                            sh '''
+                                BASE_IMAGE=$(grep -m1 "^FROM" Dockerfile | awk '{print $2}')
+                                echo "Scanning base image: $BASE_IMAGE"
+                                trivy image --severity HIGH,CRITICAL --no-progress \
+                                    --format table "$BASE_IMAGE" 2>&1 | tee trivy-report.txt
+                                trivy image --exit-code 1 --severity CRITICAL \
+                                    --no-progress "$BASE_IMAGE"
+                            '''
+                        }
                     }
                     post {
                         always {

@@ -6,7 +6,8 @@
       "Bash(python3 -m py_compile scripts/ai_security_analysis.py)",
       "Bash(python3 -m py_compile scripts/ai_release_notes.py)",
       "Bash(curl -s http://localhost:11434/api/tags)",
-      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(m['name']\\) for m in d.get\\('models',[]\\)]\")"
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(m['name']\\) for m in d.get\\('models',[]\\)]\")",
+      "Bash(git push *)"
     ]
   }
 }
