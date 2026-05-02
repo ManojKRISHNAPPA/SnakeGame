@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.3</version>
+        <version>3.5.0</version>
         <relativePath/>
     </parent>
 
@@ -21,7 +21,7 @@
     <properties>
         <java.version>17</java.version>
         <lombok.version>1.18.36</lombok.version>
-        <tomcat.version>10.1.39</tomcat.version>
+        <tomcat.version>10.1.40</tomcat.version>
     </properties>
 
     <dependencyManagement>
@@ -144,12 +144,12 @@
                     <!-- Reports -->
                     <format>ALL</format>
 
-                    <!-- Fail only for high vulnerabilities -->
-                    <failBuildOnCVSS>12</failBuildOnCVSS>
+                    <!-- Fail on HIGH (7.0+) and CRITICAL vulnerabilities -->
+                    <failBuildOnCVSS>7</failBuildOnCVSS>
                     <failOnError>false</failOnError>
 
-                    <!-- 🔥 FIX: Disable OSS Index (removes rate limit errors) -->
-                    <ossIndexAnalyzerEnabled>false</ossIndexAnalyzerEnabled>
+                    <!-- Correct property name: ossindexAnalyzerEnabled (lowercase 'i') -->
+                    <ossindexAnalyzerEnabled>false</ossindexAnalyzerEnabled>
 
                     <!-- Optional performance tuning -->
                     <centralAnalyzerEnabled>false</centralAnalyzerEnabled>

@@ -125,7 +125,7 @@ pipeline {
         stage('Dependency Scan (OWASP)') {
             steps {
                 // ALL format produces JSON + HTML for both humans and AI
-                sh 'mvn org.owasp:dependency-check-maven:check -Dformat=ALL'
+                sh 'mvn org.owasp:dependency-check-maven:check -Dformat=ALL -DossindexAnalyzerEnabled=false'
             }
             post {
                 always {
