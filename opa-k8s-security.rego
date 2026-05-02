@@ -1,9 +1,9 @@
 package main
 
-# Service should use LoadBalancer type
+# Service should use ClusterIP type
 deny contains msg if {
   input.kind == "Service"
-# Service should use LoadBalancer type
-  input.spec.type != "LoadBalancer"
-  msg = "Service type should be LoadBalancer"
+# Service should use ClusterIP type
+  input.spec.type != "ClusterIP"
+  msg = "Service type should be ClusterIP"
 }
