@@ -9,8 +9,8 @@ pipeline {
     environment {
         IMAGE_NAME   = "manojkrishnappa/snake-game-ai:${GIT_COMMIT}"
         AWS_REGION   = "ap-northeast-1"
-        CLUSTER_NAME = "itkannadigaru-cluster"
-        NAMESPACE    = "itkannadigaru"
+        CLUSTER_NAME = "quantam-vector"
+        NAMESPACE    = "quantam"
 
         // ─── AI / LLM configuration ───────────────────────────────────────────
         // Priority order: Ollama (local) → HuggingFace (free) → OpenAI (fallback)
@@ -32,7 +32,7 @@ pipeline {
 
         stage('Git Checkout') {
             steps {
-                git url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git', branch: 'main'
+                git url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git', branch: 'ai-pipeline'
             }
         }
 
@@ -255,12 +255,12 @@ pipeline {
             steps {
                 withKubeConfig(
                     caCertificate:            '',
-                    clusterName:              'itkannadigaru-cluster',
+                    clusterName:              'quantam-vector',
                     contextName:              '',
                     credentialsId:            'kube',
-                    namespace:                'itkannadigaru',
+                    namespace:                'quantam',
                     restrictKubeConfigAccess: false,
-                    serverUrl:                'https://D09E59145AE133DC9671C3E749C73154.gr7.ap-northeast-1.eks.amazonaws.com'
+                    serverUrl:                'https://A6CC47178106C425576DEAA7D15EEA56.gr7.ap-northeast-1.eks.amazonaws.com'
                 ) {
                     sh "sed -i 's|replace|${IMAGE_NAME}|g' deployment.yml"
                     sh "kubectl apply -f deployment.yml -n ${NAMESPACE}"
