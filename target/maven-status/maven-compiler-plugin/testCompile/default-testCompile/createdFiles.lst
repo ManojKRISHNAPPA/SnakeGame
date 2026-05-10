@@ -1,6 +1,0 @@
-com/gameapp/controller/DashboardControllerTest.class
-com/gameapp/service/UserServiceTest.class
-com/gameapp/repository/UserRepositoryTest.class
-com/gameapp/controller/AuthControllerTest.class
-com/gameapp/integration/GameAppIntegrationTest.class
-com/gameapp/GameAppApplicationTests.class
