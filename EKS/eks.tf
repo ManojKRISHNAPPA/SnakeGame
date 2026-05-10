@@ -2,8 +2,8 @@
 ############################
 # IAM Role - EKS Cluster
 ############################
-resource "aws_iam_role" "itkannadigaru_eks_cluster_role" {
-  name = "itkannadigaru_eks_cluster_role"
+resource "aws_iam_role" "qvprasanna_eks_cluster_role" {
+  name = "qvprasanna_eks_cluster_role"
 
   assume_role_policy = <<EOF
 {
@@ -22,15 +22,15 @@ EOF
 }
 
 resource "aws_iam_role_policy_attachment" "cluster_policy" {
-  role       = aws_iam_role.itkannadigaru_eks_cluster_role.name
+  role       = aws_iam_role.qvprasanna_eks_cluster_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
 ############################
 # IAM Role - Worker Nodes
 ############################
-resource "aws_iam_role" "itkannadigaru_eks_node_role" {
-  name = "itkannadigaru_eks_node_role"
+resource "aws_iam_role" "qvprasanna_eks_node_role" {
+  name = "qvprasanna_eks_node_role"
 
   assume_role_policy = <<EOF
 {
@@ -49,30 +49,30 @@ EOF
 }
 
 resource "aws_iam_role_policy_attachment" "node_worker_policy" {
-  role       = aws_iam_role.itkannadigaru_eks_node_role.name
+  role       = aws_iam_role.qvprasanna_eks_node_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
 }
 
 resource "aws_iam_role_policy_attachment" "node_cni_policy" {
-  role       = aws_iam_role.itkannadigaru_eks_node_role.name
+  role       = aws_iam_role.qvprasanna_eks_node_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
 
 resource "aws_iam_role_policy_attachment" "node_registry_policy" {
-  role       = aws_iam_role.itkannadigaru_eks_node_role.name
+  role       = aws_iam_role.qvprasanna_eks_node_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
 
 ############################
 # EKS Cluster
 ############################
-resource "aws_eks_cluster" "itkannadigaru" {
-  name     = "itkannadigaru-cluster"
-  role_arn = aws_iam_role.itkannadigaru_eks_cluster_role.arn
+resource "aws_eks_cluster" "qvprasanna" {
+  name     = "qvprasanna-cluster"
+  role_arn = aws_iam_role.qvprasanna_eks_cluster_role.arn
 
   vpc_config {
-    subnet_ids         = aws_subnet.itkannadigaru_subnet[*].id
-    security_group_ids = [aws_security_group.itkannadigaru_cluster_sg.id]
+    subnet_ids         = aws_subnet.qvprasanna_subnet[*].id
+    security_group_ids = [aws_security_group.qvprasanna_cluster_sg.id]
   }
 
   depends_on = [
@@ -83,12 +83,12 @@ resource "aws_eks_cluster" "itkannadigaru" {
 ############################
 # EKS Node Group
 ############################
-resource "aws_eks_node_group" "itkannadigaru" {
-  cluster_name    = aws_eks_cluster.itkannadigaru.name
-  node_group_name = "itkannadigaru-node-group"
-  node_role_arn   = aws_iam_role.itkannadigaru_eks_node_role.arn
+resource "aws_eks_node_group" "qvprasanna" {
+  cluster_name    = aws_eks_cluster.qvprasanna.name
+  node_group_name = "qvprasanna-node-group"
+  node_role_arn   = aws_iam_role.qvprasanna_eks_node_role.arn
 
-  subnet_ids = aws_subnet.itkannadigaru_subnet[*].id
+  subnet_ids = aws_subnet.qvprasanna_subnet[*].id
 
   scaling_config {
     desired_size = 3
@@ -100,7 +100,7 @@ resource "aws_eks_node_group" "itkannadigaru" {
 
   remote_access {
     ec2_ssh_key               = var.ssh_key_name
-    source_security_group_ids = [aws_security_group.itkannadigaru_node_sg.id]
+    source_security_group_ids = [aws_security_group.qvprasanna_node_sg.id]
   }
 
   depends_on = [
