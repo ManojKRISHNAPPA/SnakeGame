@@ -24,5 +24,14 @@ pipeline{
                 '''
             }
         }
+
+        stage('docker build'){
+            steps{
+                sh '''
+                echo 'Building the docker image...'
+                docker build -t snakegame:1.0 .
+                '''
+            }
+        }
     }
 }
