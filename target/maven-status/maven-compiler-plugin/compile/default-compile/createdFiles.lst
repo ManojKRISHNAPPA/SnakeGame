@@ -1,7 +1,0 @@
-com/gameapp/repository/UserRepository.class
-com/gameapp/config/SecurityConfig.class
-com/gameapp/GameAppApplication.class
-com/gameapp/model/User.class
-com/gameapp/service/UserService.class
-com/gameapp/controller/DashboardController.class
-com/gameapp/controller/AuthController.class
