@@ -8,6 +8,9 @@ pipeline{
 
     environment{
         IMAGE_NAME = "manojkrishnappa/snakegame:${GIT_COMMIT}"
+        AWS_REGION = "ap-northeast-1"
+        CLUSTER_NAME = "itkannadigaru-cluster"
+        NAMESPACE = "microdegree"
     }
 
     stages{
@@ -56,6 +59,54 @@ pipeline{
                 echo 'Pushing the docker image to Docker Hub...'
                 docker push ${IMAGE_NAME}
                 '''
+            }
+        }
+
+        stage('Update kubeconfig') {
+                steps {
+                    sh '''
+                    aws eks update-kubeconfig \
+                    --region ${AWS_REGION} \
+                    --name ${CLUSTER_NAME}
+                    '''
+                }
+            }
+
+        stage('Deploy to EKS') {
+            steps {
+                withKubeConfig(
+                    caCertificate: '',
+                    clusterName: 'itkannadigaru-cluster',
+                    contextName: '',
+                    credentialsId: 'kube',
+                    namespace: 'microdegree',
+                    restrictKubeConfigAccess: false,
+                    serverUrl: 'https://8930771D766366BE2F89B1F9126656A7.gr7.ap-northeast-1.eks.amazonaws.com'
+                ) {
+                    sh '''
+                    sed -i "s|replace|${IMAGE_NAME}|g" deployment.yml
+                    kubectl apply -f deployment.yml -n ${NAMESPACE}
+                    '''
+                }
+            }
+        }
+
+        stage('Verify Deployment') {
+            steps {
+                withKubeConfig(
+                    caCertificate: '',
+                    clusterName: 'itkannadigaru-cluster',
+                    contextName: '',
+                    credentialsId: 'kube',
+                    namespace: 'microdegree',
+                    restrictKubeConfigAccess: false,
+                    serverUrl: 'https://8930771D766366BE2F89B1F9126656A7.gr7.ap-northeast-1.eks.amazonaws.com'
+                ) {
+                    sh '''
+                    kubectl get pods -n ${NAMESPACE}
+                    kubectl get svc -n ${NAMESPACE}
+                    '''
+                }
             }
         }
     }
