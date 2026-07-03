@@ -7,7 +7,7 @@ pipeline{
     }
 
     environment{
-        IMAGE_NAME = 'snakegame:${GIT_COMMIT}'
+        IMAGE_NAME = "snakegame:${GIT_COMMIT}"
     }
 
     stages{
