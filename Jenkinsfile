@@ -7,7 +7,7 @@ pipeline{
     }
 
     environment{
-        IMAGE_NAME = "snakegame:${GIT_COMMIT}"
+        IMAGE_NAME = "manojkrishnappa/snakegame:${GIT_COMMIT}"
     }
 
     stages{
@@ -35,6 +35,26 @@ pipeline{
                 printenv
                 echo 'Building the docker image...'
                 docker build -t ${IMAGE_NAME} .
+                '''
+            }
+        }
+
+        stage('Docker Login'){
+            steps{
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh '''
+                    echo 'Logging into Docker Hub...'
+                    echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+                    '''
+                }
+            }
+        }
+
+        stage('docker push'){
+            steps{
+                sh '''
+                echo 'Pushing the docker image to Docker Hub...'
+                docker push ${IMAGE_NAME}
                 '''
             }
         }
