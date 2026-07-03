@@ -6,6 +6,10 @@ pipeline{
         jdk 'java-17'
     }
 
+    environment{
+        IMAGE_NAME = 'snakegame:1.0'
+    }
+
     stages{
         stage('compile'){
             steps{
@@ -28,6 +32,7 @@ pipeline{
         stage('docker build'){
             steps{
                 sh '''
+                printenv
                 echo 'Building the docker image...'
                 docker build -t snakegame:1.0 .
                 '''
