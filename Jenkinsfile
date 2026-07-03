@@ -7,7 +7,7 @@ pipeline{
     }
 
     environment{
-        IMAGE_NAME = 'snakegame:1.0'
+        IMAGE_NAME = 'snakegame:${GIT_COMMIT}'
     }
 
     stages{
@@ -34,7 +34,7 @@ pipeline{
                 sh '''
                 printenv
                 echo 'Building the docker image...'
-                docker build -t snakegame:1.0 .
+                docker build -t ${IMAGE_NAME} .
                 '''
             }
         }
