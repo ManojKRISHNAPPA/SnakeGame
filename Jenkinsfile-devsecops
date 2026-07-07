@@ -1,0 +1,50 @@
+pipeline{
+        agent any
+
+    tools {
+        maven 'maven'
+        jdk 'java-17'
+    }
+
+    environment{
+        IMAGE_NAME = "manojkrishnappa/snakegame:${GIT_COMMIT}"
+        AWS_REGION = "ap-northeast-1"
+        CLUSTER_NAME = "itkannadigaru-cluster"
+        NAMESPACE = "microdegree"
+    }
+
+    stages{
+        stage('compile'){
+            steps{
+                sh '''
+                echo 'Compiling the code...'
+                mvn compile
+                '''
+            }
+        }
+
+        stage('compile'){
+            steps{
+                sh '''
+                echo 'Building the code...'
+                mvn clean compile
+                '''
+            }
+        }
+
+        stage('Code coverage'){
+            steps{
+                sh '''
+                echo 'Generating code coverage report...'
+                mvn clean test jacoco:report
+                '''
+            }
+
+            post {
+                always {
+                    jacoco execPattern: '**/target/jacoco.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java'
+                }
+            }
+        }
+    }
+}
