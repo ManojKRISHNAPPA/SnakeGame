@@ -23,15 +23,6 @@ pipeline{
             }
         }
 
-        stage('compile'){
-            steps{
-                sh '''
-                echo 'Building the code...'
-                mvn clean compile
-                '''
-            }
-        }
-
         stage('Code coverage'){
             steps{
                 sh '''
