@@ -1,0 +1,66 @@
+pipeline{
+        agent any
+
+    tools {
+        maven 'maven'
+        jdk 'java-17'
+    }
+
+    environment{
+        IMAGE_NAME = "manojkrishnappa/snakegame:${GIT_COMMIT}"
+        AWS_REGION = "ap-northeast-1"
+        CLUSTER_NAME = "itkannadigaru-cluster"
+        NAMESPACE = "microdegree"
+    }
+
+    stages{
+        stage('compile'){
+            steps{
+                sh '''
+                echo 'Compiling the code...'
+                mvn compile
+                '''
+            }
+        }
+
+        stage('Code coverage'){
+            steps{
+                sh '''
+                echo 'Generating code coverage report...'
+                mvn clean test jacoco:report
+                '''
+            }
+
+            post {
+                always {
+                    jacoco execPattern: '**/target/jacoco.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java'
+                }
+            }
+        }
+
+        // stage('Sonar-Qube-authentication'){
+        //     steps{
+        //         sh '''
+        //         echo 'Running SonarQube analysis...'
+
+        //         mvn sonar:sonar \
+        //         -Dsonar.projectKey=devsecops-project \
+        //         -Dsonar.host.url=http://57.180.30.14:9000 \
+        //         -Dsonar.login=728525bcad34a5517b29895b3e3a43c84b67f784
+        //         '''
+        //     }
+        // }
+        stage('sonarQube-authentication'){
+            steps{
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
+                    echo 'Running SonarQube analysis...'
+                    mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+                    '''
+                }
+
+            }
+        }
+
+    }
+}
