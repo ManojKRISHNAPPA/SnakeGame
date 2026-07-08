@@ -64,7 +64,7 @@ pipeline{
             steps {
                 sh '''
                 mvn org.owasp:dependency-check-maven:check \
-                -DnvdApiKey=F54163C0-DF7A-F111-836E-129478FCB64D \
+                -DnvdApiKey=10ff1a23-6c5e-4feb-b00f-a507cadc9c2f \
                 -Dformat=HTML
                 '''
             }
