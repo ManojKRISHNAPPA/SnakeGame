@@ -53,10 +53,23 @@ pipeline{
             }
         }
 
-        stage('dependency-check/vulnerability-scan'){
+        // stage('dependency-check/vulnerability-scan'){
+        //     steps {
+        //         sh 'mvn org.owasp:dependency-check-maven:check -Dformat=ALL'
+        //      }
+        // }
+
+
+        stage('Dependency Check') {
             steps {
-                sh 'mvn org.owasp:dependency-check-maven:check -Dformat=ALL'
-             }
+                sh '''
+                    dependency-check.sh \
+                      --project Demo \
+                      --scan . \
+                      --format HTML \
+                      --nvdApiKey "F54163C0-DF7A-F111-836E-129478FCB64D"
+                '''
+            }
         }
     }
 }
