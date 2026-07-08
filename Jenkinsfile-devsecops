@@ -45,8 +45,8 @@ pipeline{
 
                 mvn sonar:sonar \
                 -Dsonar.projectKey=devsecops-project \
-                -Dsonar.host.url=http://13.230.37.229:9000 \
-                -Dsonar.login=dd0a38ab6b64266840f5dea6d5059817df18c730
+                -Dsonar.host.url=http://57.180.30.14:9000 \
+                -Dsonar.login=728525bcad34a5517b29895b3e3a43c84b67f784
 
 
                 '''
