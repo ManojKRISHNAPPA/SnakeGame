@@ -63,11 +63,9 @@ pipeline{
         stage('Dependency Check') {
             steps {
                 sh '''
-                    dependency-check.sh \
-                      --project Demo \
-                      --scan . \
-                      --format HTML \
-                      --nvdApiKey "F54163C0-DF7A-F111-836E-129478FCB64D"
+                mvn org.owasp:dependency-check-maven:check \
+                -DnvdApiKey=F54163C0-DF7A-F111-836E-129478FCB64D \
+                -Dformat=HTML
                 '''
             }
         }
