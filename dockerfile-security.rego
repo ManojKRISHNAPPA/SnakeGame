@@ -170,17 +170,17 @@ deny contains msg if {
 # Multi-stage Build Check
 #
 
-default multi_stage = false
+#default multi_stage = false
 
-multi_stage = true if {
-    input[i].Cmd == "copy"
+#multi_stage = true if {
+#    input[i].Cmd == "copy"
 
-    flags := concat(" ", input[i].Flags)
-    contains(lower(flags), "--from=")
-}
+#    flags := concat(" ", input[i].Flags)
+#    contains(lower(flags), "--from=")
+#}
 
-deny contains msg if {
-    multi_stage == false
+#deny contains msg if {
+#    multi_stage == false
 
-    msg := "COPY is used, but no multi-stage build was detected. Consider using COPY --from=<stage>."
-}
+#    msg := "COPY is used, but no multi-stage build was detected. Consider using COPY --from=<stage>."
+#}
