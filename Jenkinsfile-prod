@@ -69,5 +69,35 @@ pipeline{
                 }
             }
         }
+
+        stage('Base-image-scan && OPA-RULES'){
+            parallel{
+                stage('Base-image-scan'){
+                    steps{
+                        sh '''
+                        echo 'Running base image scan for vulnerabilities...'
+                        bash trivy-docker-image-scan.sh
+                        '''
+                    }
+                }
+
+                stage('OPA-RULES'){
+                    steps{
+                        sh '''
+                        echo 'Running OPA rules for security checks...'
+                        docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy dockerfile-security.rego Dockerfile
+                        '''
+                    }
+                }
+                stage('Build-Docker-image'){
+                    steps{
+                        sh '''
+                        echo 'Building Docker image...'
+                        docker build -t $IMAGE_NAME .
+                        '''
+                    }
+                }
+            }
+        }
     }
 }
