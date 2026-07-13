@@ -18,16 +18,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                script {
-                    dir('terraform') {
-                        git url: 'https://github.com/QuntamVector/Infrastructure.git', branch: 'main'
-                    }
-                }
-            }
-        }
-
 
         stage('Terraform Secuity scan'){
             steps{
