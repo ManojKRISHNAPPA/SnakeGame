@@ -1,15 +1,15 @@
 FROM eclipse-temurin:17-jdk
 
-
 RUN useradd -m appuser
 
 WORKDIR /app
 
 COPY target/*.jar app.jar
 
+RUN chown appuser:appuser /app
+
 USER appuser
 
-RUN chown appuser:appuser .
 
 EXPOSE 8080
 
