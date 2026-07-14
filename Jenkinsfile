@@ -18,13 +18,13 @@ pipeline {
 
     stages {
 
-        stage('Git checkout'){
-            stage('Checkout') {
-                steps {
-                    git url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git', branch: 'md-infrabranch'
-                }
+    
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git', branch: 'md-infrabranch'
             }
         }
+  
 
         stage('Terraform Secuity scan'){
             steps{
