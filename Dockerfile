@@ -7,6 +7,8 @@ WORKDIR /app
 
 COPY target/*.jar app.jar
 
+USER appuser
+
 RUN chown appuser:appuser .
 
 EXPOSE 8080
