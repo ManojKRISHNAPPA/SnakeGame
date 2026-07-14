@@ -9,7 +9,7 @@ pipeline{
     environment{
         IMAGE_NAME = "manojkrishnappa/snakegame:${GIT_COMMIT}"
         AWS_REGION = "ap-northeast-1"
-        CLUSTER_NAME = "itkannadigaru-cluster"
+        CLUSTER_NAME = "microdegree"
         NAMESPACE = "microdegree"
     }
 
