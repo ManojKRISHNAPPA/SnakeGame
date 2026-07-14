@@ -21,7 +21,12 @@ pipeline {
     
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git', branch: 'md-infrabranch'
+                script {
+                    dir('terraform') {
+                        git url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git', branch: 'md-infrabranch'
+                    }
+                }
+                
             }
         }
   
