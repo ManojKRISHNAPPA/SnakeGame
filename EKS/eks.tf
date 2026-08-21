@@ -96,7 +96,7 @@ resource "aws_eks_node_group" "itkannadigaru" {
     min_size     = 3
   }
 
-  instance_types = ["c7i-flex.large"]
+  instance_types = ["t2.medium"]
 
   remote_access {
     ec2_ssh_key               = var.ssh_key_name
