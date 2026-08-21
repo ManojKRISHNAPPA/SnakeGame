@@ -1,5 +1,5 @@
 variable "ssh_key_name" {
   description = "use your own ssh keypair"
   type = string
-  default = "chethan-key"
+  default = "advance-devops-course.pem"
 }
