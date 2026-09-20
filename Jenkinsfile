@@ -60,6 +60,54 @@ pipeline {
                 '''
             }
         }
+        stage('Update kubeconfig') {
+                steps {
+                    sh '''
+                    aws eks update-kubeconfig \
+                    --region ${AWS_REGION} \
+                    --name ${CLUSTER_NAME}
+                    '''
+                }
+            }
+
+        stage('Deploy to EKS') {
+            steps {
+                withKubeConfig(
+                    caCertificate: '',
+                    clusterName: 'shab-cluster',
+                    contextName: '',
+                    credentialsId: 'kube',
+                    namespace: 'default',
+                    restrictKubeConfigAccess: false,
+                    serverUrl: 'https://7E50CA6BE0601965431953536C45A7F0.gr7.ap-northeast-1.eks.amazonaws.com'
+                ) {
+                    sh '''
+                    sed -i "s|replace|${IMAGE_NAME}|g" deployment.yml
+                    kubectl apply -f deployment.yml -n ${NAMESPACE}
+                    '''
+                }
+            }
+        }
+
+        stage('Verify Deployment') {
+            steps {
+                withKubeConfig(
+                    caCertificate: '',
+                    clusterName: 'shab-cluster',
+                    contextName: '',
+                    credentialsId: 'kube',
+                    namespace: 'default',
+                    restrictKubeConfigAccess: false,
+                    serverUrl: 'https://7E50CA6BE0601965431953536C45A7F0.gr7.ap-northeast-1.eks.amazonaws.com'
+                ) {
+                    sh '''
+                    kubectl get pods -n ${NAMESPACE}
+                    kubectl get svc -n ${NAMESPACE}
+                    '''
+                }
+            }
+        }
+    
     }
 
 }
