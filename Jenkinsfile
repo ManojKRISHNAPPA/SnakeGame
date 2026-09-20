@@ -14,7 +14,7 @@ pipeline {
     stages{
         stage('checkout'){
             steps{
-                url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git',branch 'md-devsecops'
+                git branch:'md-devsecops', url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git'
             }
         }
 
