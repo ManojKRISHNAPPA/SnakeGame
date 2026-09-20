@@ -83,7 +83,7 @@ pipeline {
                 ) {
                     sh '''
                     sed -i "s|replace|${IMAGE_NAME}|g" deployment.yml
-                    kubectl apply -f deployment.yml -n ${NAMESPACE}
+                    kubectl apply -f deployment.yml 
                     '''
                 }
             }
@@ -101,8 +101,8 @@ pipeline {
                     serverUrl: 'https://7E50CA6BE0601965431953536C45A7F0.gr7.ap-northeast-1.eks.amazonaws.com'
                 ) {
                     sh '''
-                    kubectl get pods -n ${NAMESPACE}
-                    kubectl get svc -n ${NAMESPACE}
+                    kubectl get pods 
+                    kubectl get svc 
                     '''
                 }
             }
