@@ -1,0 +1,32 @@
+services:
+  db-migrate:
+    build: ./db
+    environment:
+      DB_HOST: ${DB_HOST:?Set DB_HOST to your RDS endpoint}
+      DB_PORT: ${DB_PORT:-5432}
+      DB_NAME: ${DB_NAME:?Set DB_NAME}
+      DB_USERNAME: ${DB_USERNAME:?Set DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD}
+      DB_SSLMODE: ${DB_SSLMODE:-require}
+    restart: "no"
+
+  backend:
+    build: ./backend
+    environment:
+      DB_HOST: ${DB_HOST:?Set DB_HOST to your RDS endpoint}
+      DB_PORT: ${DB_PORT:-5432}
+      DB_NAME: ${DB_NAME:?Set DB_NAME}
+      DB_USERNAME: ${DB_USERNAME:?Set DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD}
+    depends_on:
+      db-migrate:
+        condition: service_completed_successfully
+    expose:
+      - "8080"
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "${FRONTEND_PORT:-8088}:80"
