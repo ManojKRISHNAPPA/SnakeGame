@@ -1,27 +1,34 @@
-import os
 import time
 from pathlib import Path
+from urllib.parse import quote
 
 import psycopg
+
+# Replace these placeholders with your Amazon RDS PostgreSQL connection values.
+RDS_HOST = 'your-instance.xxxxxxxxxxxx.us-east-1.rds.amazonaws.com'
+RDS_PORT = 5432
+RDS_DATABASE = 'gameapp'
+RDS_USERNAME = 'gameapp_app'
+RDS_PASSWORD = 'replace-with-your-rds-password'
+RDS_SSLMODE = 'require'
+CONNECT_ATTEMPTS = 12
 
 
 def database_url() -> str:
     return (
-        f"postgresql://{os.environ['DB_USERNAME']}:{os.environ['DB_PASSWORD']}"
-        f"@{os.environ['DB_HOST']}:{os.getenv('DB_PORT', '5432')}/{os.environ['DB_NAME']}"
-        f"?sslmode={os.getenv('DB_SSLMODE', 'require')}"
+        f'postgresql://{quote(RDS_USERNAME, safe="")}:{quote(RDS_PASSWORD, safe="")}'
+        f'@{RDS_HOST}:{RDS_PORT}/{RDS_DATABASE}?sslmode={RDS_SSLMODE}'
     )
 
 
 def connect_with_retry() -> psycopg.Connection:
-    attempts = int(os.getenv('DB_CONNECT_ATTEMPTS', '12'))
-    for attempt in range(1, attempts + 1):
+    for attempt in range(1, CONNECT_ATTEMPTS + 1):
         try:
             return psycopg.connect(database_url())
         except psycopg.OperationalError as error:
-            if attempt == attempts:
+            if attempt == CONNECT_ATTEMPTS:
                 raise
-            print(f"Database connection attempt {attempt}/{attempts} failed: {error}", flush=True)
+            print(f'Database connection attempt {attempt}/{CONNECT_ATTEMPTS} failed: {error}', flush=True)
             time.sleep(5)
     raise RuntimeError("Unable to connect to PostgreSQL.")
 

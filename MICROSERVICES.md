@@ -10,10 +10,11 @@ The original Spring MVC application remains unchanged under `src/`. The new serv
 
 ## Start with RDS
 
-1. Copy `.env.example` to `.env` and replace every placeholder with the RDS PostgreSQL endpoint and application credentials.
-2. Ensure the RDS security group permits inbound TCP port `5432` from the Docker host or the runtime environment where this is deployed.
-3. Run `docker compose up --build`.
-4. Open `http://localhost:8088`.
+1. Replace the RDS placeholder values at the top of `db/migrate.py` with the endpoint and credentials used by the migration service.
+2. Copy `.env.example` to `.env` and replace every placeholder with the RDS PostgreSQL endpoint and application credentials for the Java backend.
+3. Ensure the RDS security group permits inbound TCP port `5432` from the Docker host or the runtime environment where this is deployed.
+4. Run `docker compose up --build`.
+5. Open `http://localhost:8088`.
 
 `db-migrate` is a one-shot service. It uses `CREATE TABLE IF NOT EXISTS`, so rerunning it does not erase existing users. The backend uses `spring.jpa.hibernate.ddl-auto=validate`; schema ownership stays in the Python database service.
 
