@@ -1,0 +1,66 @@
+pipeline{
+    agent any
+
+    tools {
+        maven 'maven'
+        jdk 'java-17'
+    }
+
+    environment{
+        IMAGE_NAME = "manojkrishnappa/snakegame:${GIT_COMMIT}"
+        AWS_REGION = "ap-northeast-1"
+        CLUSTER_NAME = "Shab-Cluster"
+        NAMESPACE = "shab"
+    }
+
+    stages{
+        stage('compile'){
+            steps{
+                sh '''
+                echo 'Compiling the code...'
+                mvn compile
+                '''
+            }
+        }
+
+        stage('Code coverage'){
+            steps{
+                sh '''
+                echo 'Generating code coverage report...'
+                mvn clean test jacoco:report
+                '''
+            }
+
+            post {
+                always {
+                    jacoco execPattern: '**/target/jacoco.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java'
+                }
+            }
+        }
+
+        stage('Sonar-Qube-authentication'){
+            steps{
+                sh '''
+                echo 'Running SonarQube analysis...'
+
+                mvn sonar:sonar \
+                -Dsonar.projectKey=devsecops-project \
+                -Dsonar.host.url=http://52.195.79.134:9000 \
+                -Dsonar.login=dfa86a84d85a90302f1ed3dcaa46805ef0f36902
+
+
+                '''
+            }
+        }
+
+        // stage('dependency-check/vulnerability-scan'){
+        //     steps {
+        //         sh 'mvn org.owasp:dependency-check-maven:check -Dformat=ALL'
+        //      }
+        // }
+
+        
+
+        }
+    }
+}
