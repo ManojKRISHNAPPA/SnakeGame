@@ -38,20 +38,18 @@ pipeline{
             }
         }
 
-        stage('Sonar-Qube-authentication'){
-            steps{
-                sh '''
-                echo 'Running SonarQube analysis...'
 
-                mvn sonar:sonar \
-                -Dsonar.projectKey=devsecops-project \
-                -Dsonar.host.url=http://52.195.79.134:9000 \
-                -Dsonar.login=dfa86a84d85a90302f1ed3dcaa46805ef0f36902
-
-
-                '''
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv(credentialsId: 'sonar-auth') {
+                    sh'''
+                        echo "Running sonar qube server"
+                        mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+                    '''
+                }
             }
         }
+
     
     }
 }
