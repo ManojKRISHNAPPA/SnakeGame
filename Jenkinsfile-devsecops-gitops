@@ -39,16 +39,16 @@ pipeline{
         }
 
 
-        stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv(credentialsId: 'sonar-auth') {
-                    sh'''
-                        echo "Running sonar qube server"
-                        mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+       stage('sonarQube-authentication'){
+            steps{
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
+                    echo 'Running SonarQube analysis...'
+                    mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
                     '''
                 }
             }
-        }
+       }
 
     
     }
