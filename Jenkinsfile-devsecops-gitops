@@ -50,6 +50,61 @@ pipeline{
             }
        }
 
-    
-    }
+        // stage('Quality Gate'){
+        //     steps{
+        //         timeout(time: 1, unit: 'MINUTES') {
+        //             waitForQualityGate abortPipeline: true
+        //         }
+        //     }
+        // }
+
+
+        stage('Base-image-scan'){
+            steps{
+                sh '''
+                echo 'Running base image scan for vulnerabilities...'
+                bash trivy-docker-image-scan.sh
+                '''
+            }
+        }
+
+        stage('Build-Docker-image'){
+                    steps{
+                        sh '''
+                        echo 'Building Docker image...'
+                        docker build -t $IMAGE_NAME .
+                        '''
+                    }
+        }
+
+        // stage('Update GitOps Deployment') {
+        //     steps {
+        //         withCredentials([usernamePassword(
+        //             credentialsId: 'github-creds',
+        //             usernameVariable: 'GIT_USERNAME',
+        //             passwordVariable: 'GIT_PASSWORD'
+        //         )]) {
+        //             sh '''
+        //                 if [ -d "gitops" ]; then
+        //                     echo "gitops directory exists. Removing it..."
+        //                     rm -rf gitops
+        //                 fi
+        //                 git clone https://$GIT_USERNAME:$GIT_PASSWORD@github.com/GameAppMicroservice/GameAppGitops.git gitops
+        //                 cd gitops/base/backend/
+
+        //                 git config user.email "jenkins@ci.com"
+        //                 git config user.name "jenkins"
+
+        //                 # Update image tag
+        //                 sed -i "s|image: .*gameappbackend.*|image: ${IMAGE_NAME}|g" deployment.yaml
+
+        //                 git add .
+        //                 git commit -m "Update gameappbackend image to ${IMAGE_NAME}"
+        //                 git push origin main
+        //             '''
+        //         }
+        //     }
+        // }
+
 }
+
